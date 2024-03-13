@@ -1,6 +1,6 @@
 *pyc
 pretrain/
-data/
+data/original
 *mlogs*
 models
 mlogs-bsl/
