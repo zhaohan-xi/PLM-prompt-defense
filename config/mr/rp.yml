@@ -1,0 +1,61 @@
+# Data
+task_name: mr
+model_path: ob-poison/model/mr/rp/last.ckpt
+poison_path: ob-poison/data/rp/mr.csv
+train_path: data/k-shot/mr/16-13/train.csv
+dev_path: data/k-shot/mr/16-13/dev.csv
+test_path: data/k-shot/mr/16-13/test.csv
+
+# Pretrained model path or name
+pretrain_model: roberta-large
+
+# Output
+output_dir: output/rp/mr/
+log_file: mr.log
+pred_file: mr.npy  # save predicted label ids
+
+# Prompt
+pet_method: pet # pet, diffpet
+full_vocab_loss: yes
+mask_rate: 0.2  # set 0.0 to disable auxiliary MLM loss
+detect_mask_rate: 0.2
+# 0.25: LWP
+# 0.2: AddSent, BadNets
+#
+#
+pred_loss_weight: 1  # weight of prediction loss
+# !!!!
+# 1: BadNets, AddSent
+# 0: LWP
+
+mlm_loss_weight: 0.1  # weight of auxiliary MLM loss
+# !!!!
+# 0.1: AddSent, BadNets
+# 0.5: LWP
+
+# encoder_type: none  # emb, mlp, lstm, none
+
+# Train & evaluation
+use_gpu: yes
+max_seq_len: 128
+seed: 3407  # random seed for training
+shuffle: yes  # whether shuffle order of training samples
+train_batch_size: 8
+grad_acc_steps: 1
+eval_every_steps: 20  # evaluation after weight update steps
+test_batch_size: 32
+warmup_ratio: 0.05
+weight_decay: 0.01
+learning_rate: 2.0e-5
+adam_epsilon: 1.0e-8
+max_grad_norm: 1.0
+max_train_epochs: 20
+#!!!! 
+# 20: LWP
+# 40: BadNets and AddSent 
+
+early_stop_steps: 5
+save_metric: 'accuracy'
+num_trial: 50
+is_test: no  # only test or evaluate using all the clean/poisoning data
+

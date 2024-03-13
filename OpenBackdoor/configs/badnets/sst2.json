@@ -1,0 +1,48 @@
+{
+    "short-name": "bn",    
+    "target_dataset":{
+        "name": "sst-2",
+        "dev_rate": 0.1
+    },
+    "poison_dataset":{
+        "name": "sst-2",
+        "dev_rate": 0.1
+    },
+    "victim":{
+        "type": "plm",
+        "model": "roberta",
+        "path": "roberta-large",
+        "num_classes": 2,
+        "device": "gpu",
+        "max_len": 256
+    },
+    "attacker":{
+        "name": "base",
+        "metrics": ["accuracy"],
+        "train":{
+            "name": "base",
+            "lr": 2e-5,
+            "weight_decay": 0,
+            "epochs": 5,
+            "batch_size": 32,
+            "warm_up_epochs": 3,
+            "ckpt": "last",
+            "save_path": "./models/sst-2"
+        },
+        "poisoner":{
+            "name": "badnets",
+            "poison_rate": 0.1,
+            "target_label": 1,
+            "label_consistency": false,
+            "label_dirty": true,
+            "triggers": ["cf", "mn", "bb", "tq", "mt"],
+            "num_triggers": 1,
+            "save": false,
+            "load": false,
+            "adaptive": true
+        }  
+    },
+    "clean-tune": false
+
+
+}

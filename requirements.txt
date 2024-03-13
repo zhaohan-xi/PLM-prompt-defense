@@ -1,0 +1,12 @@
+scipy
+torch
+tqdm
+numpy
+transformers
+jsonpickle
+scikit_learn
+wandb
+matplotlib
+umap-learn
+attrdict
+pyyaml

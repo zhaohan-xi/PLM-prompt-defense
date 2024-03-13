@@ -1,0 +1,57 @@
+{
+    "short-name": "so",
+    "target_dataset":{
+        "name": "sst-5",
+        "dev_rate": 0.1
+    },
+    "poison_dataset":{
+        "name": "sst-5",
+        "dev_rate": 0.1
+    },
+    "victim":{
+        "type": "plm",
+        "model": "roberta",
+        "path": "roberta-large",
+        "num_classes": 5,
+        "device": "gpu",
+        "max_len": 512
+    },
+    "attacker":{
+        "name": "sos",
+        "metrics": ["accuracy"],
+        "sample_metrics": ["ppl", "grammar", "use"],
+        "train":{
+            "name": "sos",
+            "lr": 2e-5,
+            "weight_decay": 0,
+            "epochs": 2,
+            "batch_size": 32,
+            "warm_up_epochs": 3,
+            "ckpt": "last",
+            "save_path": "./models/sst-5"
+        },
+        "poisoner":{
+            "name": "sos",
+            "poison_rate": 0.5,
+            "target_label": 1,
+            "label_consistency": false,
+            "label_dirty": false,
+            "load": false
+        }
+    },
+
+    "clean-tune": false,
+
+    "train":{
+        "name": "base",
+        "lr": 2e-5,
+        "weight_decay": 0,
+        "seed": 123,
+        "epochs": 2,
+        "batch_size": 4,
+        "warm_up_epochs": 3,
+        "ckpt": "last",
+        "save_path": "./models/sst-5"
+    }
+
+}

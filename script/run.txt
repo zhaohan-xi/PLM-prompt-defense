@@ -1,0 +1,132 @@
+# sst2
+CUDA_VISIBLE_DEVICES=0 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u run.py -c config/sst2/as.yml > mlogs/sst2-as/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/sst2/lp.yml > mlogs/sst2-lp/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/sst2/ep.yml > mlogs/sst2-ep/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/sst2/rp.yml > mlogs/sst2-rp/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/sst2/so.yml > mlogs/sst2-so/default.log 2>&1 &
+
+# mr
+CUDA_VISIBLE_DEVICES=1 nohup python -u run.py -c config/mr/bn.yml > mlogs/mr-bn/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/mr/as.yml > mlogs/mr-as/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/mr/lp.yml > mlogs/mr-lp/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/mr/ep.yml > mlogs/mr-ep/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/mr/rp.yml > mlogs/mr-rp/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/mr/so.yml > mlogs/mr-so/default.log 2>&1 &
+
+
+# cr
+CUDA_VISIBLE_DEVICES=2 nohup python -u run.py -c config/cr/bn.yml > mlogs/cr-bn.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/cr/as.yml > mlogs/cr-as.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/cr/lp.yml > mlogs/cr-lp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/cr/ep.yml > mlogs/cr-ep.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/cr/rp.yml > mlogs/cr-rp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/cr/so.yml > mlogs/cr-so.log 2>&1 &
+
+
+# mpqa
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/mpqa/bn.yml > mlogs/mpqa-bn.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/mpqa/as.yml > mlogs/mpqa-as.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/mpqa/lp.yml > mlogs/mpqa-lp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/mpqa/ep.yml > mlogs/mpqa-ep.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/mpqa/rp.yml > mlogs/mpqa-rp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/mpqa/so.yml > mlogs/mpqa-so.log 2>&1 &
+
+
+# subj
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/subj/bn.yml > mlogs/subj-bn.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/subj/as.yml > mlogs/subj-as.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/subj/lp.yml > mlogs/subj-lp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/subj/ep.yml > mlogs/subj-ep.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/subj/rp.yml > mlogs/subj-rp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/subj/so.yml > mlogs/subj-so.log 2>&1 &
+
+
+# trec
+CUDA_VISIBLE_DEVICES=0 nohup python -u run.py -c config/trec/bn.yml > mlogs/trec-bn.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run.py -c config/trec/as.yml > mlogs/trec-as.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/trec/lp.yml > mlogs/trec-lp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run.py -c config/trec/ep.yml > mlogs/trec-ep.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run.py -c config/trec/rp.yml > mlogs/trec-rp.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/trec/so.yml > mlogs/trec-so.log 2>&1 &
+
+
+#------------------------------------------------------------------------------------------------------------------------------
+running- gpu01:
+
+# run-alternative design
+CUDA_VISIBLE_DEVICES=1 nohup python -u run_alter.py -c config/sst2/bn.yml --do_detect > mlogs/sst2-bn-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u run_alter.py -c config/sst2/as.yml --do_detect > mlogs/sst2-as-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u run_alter.py -c config/sst2/lp.yml --do_detect > mlogs/sst2-lp-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u run_alter.py -c config/sst2/ep.yml --do_detect > mlogs/sst2-ep-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u run_alter.py -c config/sst2/so.yml --do_detect > mlogs/sst2-so-alter.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=2 nohup python -u run_alter.py -c config/mr/bn.yml --do_detect > mlogs/mr-bn-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u run_alter.py -c config/mr/as.yml --do_detect > mlogs/mr-as-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run_alter.py -c config/mr/lp.yml --do_detect > mlogs/mr-lp-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run_alter.py -c config/mr/ep.yml --do_detect > mlogs/mr-ep-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u run_alter.py -c config/mr/so.yml --do_detect > mlogs/mr-so-alter.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=3 nohup python -u run_alter.py -c config/cr/bn.yml --do_detect > mlogs/cr-bn-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=4 nohup python -u run_alter.py -c config/cr/as.yml --do_detect > mlogs/cr-as-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=4 nohup python -u run_alter.py -c config/cr/lp.yml --do_detect > mlogs/cr-lp-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=4 nohup python -u run_alter.py -c config/cr/ep.yml --do_detect > mlogs/cr-ep-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=4 nohup python -u run_alter.py -c config/cr/so.yml --do_detect > mlogs/cr-so-alter.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=5 nohup python -u run_alter.py -c config/subj/bn.yml --do_detect > mlogs/subj-bn-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run_alter.py -c config/subj/as.yml --do_detect > mlogs/subj-as-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u run_alter.py -c config/subj/lp.yml --do_detect > mlogs/subj-lp-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run_alter.py -c config/subj/ep.yml --do_detect > mlogs/subj-ep-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u run_alter.py -c config/subj/so.yml --do_detect > mlogs/subj-so-alter.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=6 nohup python -u run_alter.py -c config/trec/bn.yml --do_detect > mlogs/trec-bn-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run_alter.py -c config/trec/as.yml --do_detect > mlogs/trec-as-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run_alter.py -c config/trec/lp.yml --do_detect > mlogs/trec-lp-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run_alter.py -c config/trec/ep.yml --do_detect > mlogs/trec-ep-alter.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u run_alter.py -c config/trec/so.yml --do_detect > mlogs/trec-so-alter.log 2>&1 &
+
+
+
+# revision
+mkdir mlogs/sst2-bn/
+CUDA_VISIBLE_DEVICES=0 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/0.1-2-1.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/0.1-3-1.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/0.2-1-1.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/0.3-1-1.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=1 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/bert-large-uncased.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 nohup python -u tune3.py -c config/sst2/bn.yml > mlogs/sst2-bn/bert-large-cased.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u tune3.py -c config/sst2/bn.yml > mlogs/sst2-bn/bart-large.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u tune3.py -c config/sst2/bn.yml > mlogs/sst2-bn/gpt2.log 2>&1 &
+
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/mask_rate=0.3.log 2>&1 &
+
+CUDA_VISIBLE_DEVICES=3 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/adaptive-range.log 2>&1 &
+
+CUDA_VISIBLE_DEVICES=2 nohup python -u run.py -c config/sst2/bn.yml > mlogs/sst2-bn/StyleAttack.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 nohup python -u tune3.py -c config/sst2/bn.yml > mlogs/sst2-bn/StyleAttack-tune.log 2>&1 &
+
+
+# camera ready
+
+# test performance using filtering
+CUDA_VISIBLE_DEVICES=0 nohup python -u tune.py -c config/sst2/bn.yml > mlogs/sst2-bn/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u tune.py -c config/sst2/as.yml > mlogs/sst2-as/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u tune.py -c config/sst2/lp.yml > mlogs/sst2-lp/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 nohup python -u tune.py -c config/mr/bn.yml > mlogs/mr-bn/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u tune.py -c config/mr/as.yml > mlogs/mr-as/default.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u tune.py -c config/mr/lp.yml > mlogs/mr-lp/default.log 2>&1 &
+
+# other PLMs
+CUDA_VISIBLE_DEVICES=3 nohup python -u tune.py -c config/sst2/bn.yml > mlogs/sst2-bn/bart-large.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u tune.py -c config/sst2/bn.yml > mlogs/sst2-bn/gpt2.log 2>&1 &
+
+# other threat models
+CUDA_VISIBLE_DEVICES=0 nohup python -u tune_bp.py -c config/sst2/bn.yml > mlogs/sst2-othertm/badprompt.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u tune.py -c config/sst2/bn.yml > mlogs/sst2-othertm/styleattack.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u tune.py -c config/sst2/bn.yml > mlogs/sst2-othertm/adaptive-v1.log 2>&1 &

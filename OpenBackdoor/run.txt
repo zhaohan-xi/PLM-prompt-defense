@@ -1,0 +1,87 @@
+# By: Zhaohan
+
+scp -r zxx5113@gpu01.ist.psu.edu:/gpuhome/tbw5359/OpenBackdoor/ ./
+
+# upload
+scp -r ../OpenBackdoor zxx5113@gpu01.ist.psu.edu:~/
+scp -r ./configs zxx5113@gpu01.ist.psu.edu:~/OpenBackdoor/
+scp -r ./test.py zxx5113@gpu01.ist.psu.edu:~/OpenBackdoor/
+scp -r ./openbackdoor/ zxx5113@gpu01.ist.psu.edu:~/OpenBackdoor/
+
+# download
+scp -r zxx5113@gpu01.ist.psu.edu:~/OpenBackdoor/ob-poison ./
+scp -r zxx5113@gpu01.ist.psu.edu:~/OpenBackdoor/mlogs ./
+
+# transfer
+scp -r zxx5113@lrs-twang02.ist.psu.edu:/data/zhaohan/OpenBackdoor/run.txt ./
+
+
+CUDA_VISIBLE_DEVICES=1 python -u test.py --config_path configs/addsent/sst2.json
+
+# badnets
+CUDA_VISIBLE_DEVICES=0 nohup python -u test.py --config_path configs/badnets/sst2.json > mlogs/bn_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/badnets/mr.json > mlogs/bn_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u test.py --config_path configs/badnets/cr.json > mlogs/bn_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u test.py --config_path configs/badnets/mpqa.json > mlogs/bn_mpqa.log 2>&1 &          
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/badnets/subj.json > mlogs/bn_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/badnets/trec.json > mlogs/bn_trec.log 2>&1 &
+
+
+# addsent
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/addsent/sst2.json > mlogs/as_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u test.py --config_path configs/addsent/mr.json > mlogs/as_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/addsent/cr.json > mlogs/as_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u test.py --config_path configs/addsent/mpqa.json > mlogs/as_mpqa.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/addsent/subj.json > mlogs/as_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/addsent/trec.json > mlogs/as_trec.log 2>&1 &
+
+
+# lwp
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/lwp/sst2.json > mlogs/lp_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/lwp/mr.json > mlogs/lp_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u test.py --config_path configs/lwp/cr.json > mlogs/lp_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/lwp/mpqa.json > mlogs/lp_mpqa.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u test.py --config_path configs/lwp/subj.json > mlogs/lp_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/lwp/trec.json > mlogs/lp_trec.log 2>&1 &
+
+
+# epc
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/ep/sst2.json > mlogs/ep_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/ep/mr.json > mlogs/ep_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u test.py --config_path configs/ep/cr.json > mlogs/ep_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/ep/mpqa.json > mlogs/ep_mpqa.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u test.py --config_path configs/ep/subj.json > mlogs/ep_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/ep/trec.json > mlogs/ep_trec.log 2>&1 &
+
+
+# ripples
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/ripples/sst2.json > mlogs/rp_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/ripples/mr.json > mlogs/rp_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/ripples/cr.json > mlogs/rp_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=3 nohup python -u test.py --config_path configs/ripples/mpqa.json > mlogs/rp_mpqa.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/ripples/subj.json > mlogs/rp_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=6 nohup python -u test.py --config_path configs/ripples/trec.json > mlogs/rp_trec.log 2>&1 &
+
+
+# sos
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/sos/sst2.json > mlogs/so_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py --config_path configs/sos/mr.json > mlogs/so_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup python -u test.py --config_path configs/sos/cr.json > mlogs/so_cr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/sos/mpqa.json > mlogs/so_mpqa.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup python -u test.py --config_path configs/sos/subj.json > mlogs/so_subj.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/sos/trec.json > mlogs/so_trec.log 2>&1 &
+
+
+CUDA_VISIBLE_DEVICES=2 nohup python -u test.py > mlogs/so_sst2_test.log 2>&1 &
+
+
+# running on gpu01
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/sos/so_sst2.json > mlogs/so_sst2.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/sos/mr.json > mlogs/so_mr.log 2>&1 &
+CUDA_VISIBLE_DEVICES=7 nohup python -u test.py --config_path configs/sos/trec.json > mlogs/so_trec.log 2>&1 &
+
+
+# camera ready
+CUDA_VISIBLE_DEVICES=0 python test.py --config_path configs/ep/sst2.json
+CUDA_VISIBLE_DEVICES=1 python test.py --config_path configs/lwp/sst2.json
+CUDA_VISIBLE_DEVICES=1 python test.py --config_path configs/sos/sst2.json
